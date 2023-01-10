@@ -1,0 +1,70 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  AllocatedStorage:
+    Type: String
+    #Default: 20
+
+  DBInstanceClass:
+    Type: String
+    #Default: db.m6g.large    
+
+  DBName:
+    Type: String
+    #Default: Dev
+
+  SubnetGroupName:
+    Type: String
+    #Default: dbsubnetgroup
+
+
+  Engine:
+    Type: String
+    #Default: postgres
+
+  EngineVersion:
+    Type: String
+    #Default: 13.3    
+
+  MasterUsername:
+    Type: String
+    #Default: Naresh
+
+
+  MasterUserPassword:
+    Type: String
+    #Default: Admin12345
+  MultiAZ:
+    Type: String
+    #Default: true
+  ReplicaMode:
+    Type: String
+    #Default: open-read-only
+
+  StorageType:
+    Type: String
+    #Default: standard
+  Tags:
+    Type: String
+    #Default: Naresh-RDS-POC
+Resources:
+  RDS:
+    Type: AWS::RDS::DBInstance
+    Properties: 
+      AllocatedStorage: !Ref AllocatedStorage
+      DBInstanceClass: !Ref DBInstanceClass
+      DBName: !Ref DBName
+      DBSubnetGroupName: !Ref SubnetGroupName
+      Engine: !Ref Engine
+      EngineVersion: !Ref EngineVersion
+      MasterUsername: !Ref MasterUsername
+      MasterUserPassword: !Ref MasterUserPassword
+      MultiAZ: !Ref MultiAZ
+      ReplicaMode: !Ref ReplicaMode
+      StorageType: !Ref StorageType
+      Tags: 
+        - Key: Name
+          Value: !Ref Tags
+
+
+
+    
