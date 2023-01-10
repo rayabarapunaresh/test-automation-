@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: An example template for a creating loadbalencer.
+
+Resources: 
+ Loadbalancer: 
+  Type : AWS::ElasticLoadBalancingV2::LoadBalancer
+  Properties: 
+    Name: "Name1"
+    Scheme: "scheme1"
+    SecurityGroups : 
+     - sgs
+    Subnets:
+     - subnet1
+     - subnet2
+    Type: "loadbalencerty"
