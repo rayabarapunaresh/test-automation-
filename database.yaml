@@ -1,0 +1,23 @@
+---
+- name: create_rds_instance
+  hosts: localhost
+  gather_facts : False
+
+  tasks:
+    - name: provision postgres rds instance
+      rds:
+        command: create
+        size: "20"
+        zone: zone1
+        instance_type: instance_type1
+        instance_name: instance_name1
+        db_name: db_name1
+        subnet: dbsubnetgroup1
+        vpc_security_groups: vpc_security_groups1
+        db_engine: engine1
+        engine_version: "engine_version1"
+        password: master_user_password1
+        username: master_username1
+        region: region1
+        tags:
+          name: create-rds-instance
